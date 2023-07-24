@@ -10,7 +10,8 @@ const FilterDate = () => {
   const inputStart = useRef(null);
   const inputEnd = useRef(null);
 
-  const valueHandler = () => {
+  const valueHandler = (e) => {
+    e.target.value = e.target.value.slice(0, 4);
     sendValue();
   };
 
@@ -48,8 +49,8 @@ const FilterDate = () => {
       </button>
 
       <div className={`select select-date ${isActive ? "is-active" : ""}`}>
-        <input type="number" placeholder="from" ref={inputStart} onChange={valueHandler}/>
-        <input type="number" ref={inputEnd} placeholder="before" onChange={valueHandler}/>
+        <input type="number" placeholder="from" ref={inputStart} onChange={(e) => valueHandler(e)}/>
+        <input type="number" ref={inputEnd} placeholder="before" onChange={(e) => valueHandler(e)}/>
       </div>
     </div>
   );
