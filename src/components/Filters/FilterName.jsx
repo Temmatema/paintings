@@ -16,7 +16,7 @@ const FilterName = () => {
   }, 500)
 
   return (
-    <div className="filter__field">
+    <div className="filter__field filter-name">
       <label>
         <input type="text" onChange={(e) => changeHandler(e)} placeholder="Name"/>
       </label>

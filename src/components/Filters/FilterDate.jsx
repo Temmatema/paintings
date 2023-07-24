@@ -7,7 +7,6 @@ import { Context } from "../../context";
 const FilterDate = () => {
   const [isActive, setIsActive] = useState(false);
   const { setPaintings, setIsLoading, setPage, setTotalPages } = useContext(Context);
-  const [isError, setIsError] = useState(false);
   const inputStart = useRef(null)
   const inputEnd = useRef(null)
 
@@ -19,9 +18,6 @@ const FilterDate = () => {
   }
 
   const sendValue = debounce(() => {
-    setIsLoading(true);
-    setIsError(false);
-
     const start = inputStart.current.value;
     const end = inputEnd.current.value;
 
@@ -31,15 +27,10 @@ const FilterDate = () => {
       _page: 1
     })
       .then((res) => {
-        if (!res.data.length) {
-          setIsError(true)
-          setIsLoading(false);
-        } else {
           setPaintings(res.data);
           setIsLoading(false);
           setPage(1);
           setTotalPages(res.headers['x-total-count']);
-        }
       });
   },2000);
 
@@ -54,7 +45,7 @@ const FilterDate = () => {
   }
 
   return (
-    <div className="filter__field filter-select">
+    <div className="filter__field filter-date filter-select">
       <button
         className={`filter__btn filter__btn--date ${
           isActive ? "is-active" : ""
@@ -66,10 +57,7 @@ const FilterDate = () => {
       </button>
 
       <div
-        className={`select select-date 
-      ${isActive ? "is-active" : ""}
-      ${isError ? "is-error" : ""}`}
-      >
+        className={`select select-date ${isActive ? "is-active" : ""}`}>
         <input
           type="number"
           placeholder="from"

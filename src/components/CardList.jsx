@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import Card from "./Card";
 import {Context} from "../context";
+import Loader from "./Loader";
 
 const CardList = ({paintings}) => {
   const {isLoading} = useContext(Context);
@@ -8,7 +9,7 @@ const CardList = ({paintings}) => {
   return (
     <div className="cards">
       {
-        isLoading ? <h1 style={{marginBottom: '40px'}}>Loading...</h1> :
+        isLoading ? <Loader/> :
         paintings.map(el => {
           return <Card
             locationId={el.locationId}

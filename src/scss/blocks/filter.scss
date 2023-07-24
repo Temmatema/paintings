@@ -48,6 +48,7 @@
 
 .filter__field label {
   width: 100%;
+  display: flex;
 }
 
 .filter__field input {
@@ -71,9 +72,10 @@
 
 .filter__btn {
   width: 100%;
-  padding: 15px;
+  padding: 12px 15px;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   path {
     fill: #7B7B7B;
@@ -95,7 +97,7 @@
     height: 0;
     background-color: var(--black-alpha);
     left: 0;
-    top: 45px;
+    top: 43px;
   }
 }
 
@@ -108,11 +110,48 @@
 .filter__clear {
   position: absolute;
   right: 35px;
-  top: 18px;
+  top: 19px;
+
+  @include vp-768 {
+    top: 16px;
+  }
 }
 
 .filter__btn--date.is-active {
   &::after {
     content: none;
+  }
+}
+
+.filter-name {
+  padding: 8px 15px;
+}
+
+.filter-author {
+  position: absolute;
+  top: 60px;
+  z-index: 2;
+  @include vp-768 {
+    position: relative;
+    top: 0;
+  }
+}
+
+.filter-location {
+  position: absolute;
+  top: 120px;
+  z-index: 1;
+  @include vp-768 {
+    position: relative;
+    top: 0;
+  }
+}
+
+.filter-date {
+  position: absolute;
+  top: 180px;
+  @include vp-768 {
+    position: relative;
+    top: 0;
   }
 }

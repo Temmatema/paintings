@@ -3,6 +3,7 @@ import CardList from "./CardList";
 import Pagination from "./Pagination";
 import Filters from "./Filters/Filters";
 import { Context} from "../context";
+import Loader from "./Loader";
 
 const Main = () => {
   const {authors, paintings, totalPages, locations} = useContext(Context)
@@ -12,7 +13,7 @@ const Main = () => {
       <Filters/>
       {
         (!paintings || !authors || !locations) ? (
-        <h1 style={{marginBottom: '40px'}}>Loading...</h1>
+        <Loader/>
       ) : (
         <CardList paintings={paintings}/>
       )}

@@ -30,7 +30,7 @@ const FilterLocation = () => {
   }
 
   return (
-    <div className="filter__field filter-select">
+    <div className="filter__field filter-location filter-select">
       <button
         className={`filter__btn ${isActive ? "is-active" : ""}`}
         onClick={() => setIsActive(!isActive)}

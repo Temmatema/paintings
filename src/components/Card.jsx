@@ -1,17 +1,26 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {Context} from "../context";
+import Loader from "./Loader";
 
 const Card = ({ imageUrl, name, authorId, created, locationId }) => {
   const {authors, locations} = useContext(Context);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
 
   const authorName = authors.find((obj) => obj.id === authorId).name;
   const location = locations.find((obj) => obj.id === locationId).location;
 
-  const getUrl = (url) => `https://test-front.framework.team${url}`
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   return (
     <div className="cards__item">
-      <img src={getUrl(imageUrl)} alt="Картина." />
+      {!imageLoaded && <Loader/>}
+      <img src={`https://test-front.framework.team${imageUrl}`}
+           alt="Картина."
+           style={{ display: imageLoaded ? 'block' : 'none' }}
+           onLoad={handleImageLoad} />
       <div className="cards__inner-wrap">
         <h2>{name}</h2>
         <p>

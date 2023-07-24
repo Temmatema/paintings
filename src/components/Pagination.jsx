@@ -7,7 +7,7 @@ import {debounce} from "lodash";
 import {apiPaintings} from "../utils/api";
 
 const Pagination = () => {
-  let { totalPages, setPaintings, setIsLoading, page, setPage } = useContext(Context);
+  let { totalPages, setPaintings, setIsLoading, page, setPage, paintings } = useContext(Context);
   totalPages = getPages(totalPages);
 
   const changeHandler = debounce((value) => {
@@ -20,52 +20,54 @@ const Pagination = () => {
   }, 500)
 
   return (
-    <div className="pagination">
-      <button
-        className="pagination__btn"
-        disabled={page <= 1}
-        onClick={() => changeHandler(1)}
-      >
-        <DoubleArrow style={{ transform: "rotateZ(180deg)" }} />
-      </button>
-      <button
-        className="pagination__btn"
-        disabled={page <= 1}
-        onClick={() => changeHandler(page - 1)}
-      >
-        <Arrow style={{ transform: "rotateZ(180deg)" }} />
-      </button>
-      <ul className="pagination__list">
-        {totalPages.map((el) => {
-          return (
-            <li key={el} className="pagination__item">
-              <button
-                onClick={() => changeHandler(el)}
-                className={
-                  page === el ? "pagination__btn is-active" : "pagination__btn"
-                }
-              >
-                {el}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      <button
-        className="pagination__btn"
-        disabled={page === totalPages.length}
-        onClick={() => changeHandler(page + 1)}
-      >
-        <Arrow />
-      </button>
-      <button
-        className="pagination__btn"
-        disabled={page === totalPages.length}
-        onClick={() => changeHandler(totalPages.length)}
-      >
-        <DoubleArrow />
-      </button>
-    </div>
+    <>
+      {paintings.length ? <div className="pagination">
+        <button
+          className="pagination__btn"
+          disabled={page <= 1}
+          onClick={() => changeHandler(1)}
+        >
+          <DoubleArrow style={{transform: "rotateZ(180deg)"}}/>
+        </button>
+        <button
+          className="pagination__btn"
+          disabled={page <= 1}
+          onClick={() => changeHandler(page - 1)}
+        >
+          <Arrow style={{transform: "rotateZ(180deg)"}}/>
+        </button>
+        <ul className="pagination__list">
+          {totalPages.map((el) => {
+            return (
+              <li key={el} className="pagination__item">
+                <button
+                  onClick={() => changeHandler(el)}
+                  className={
+                    page === el ? "pagination__btn is-active" : "pagination__btn"
+                  }
+                >
+                  {el}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <button
+          className="pagination__btn"
+          disabled={page === totalPages.length}
+          onClick={() => changeHandler(page + 1)}
+        >
+          <Arrow/>
+        </button>
+        <button
+          className="pagination__btn"
+          disabled={page === totalPages.length}
+          onClick={() => changeHandler(totalPages.length)}
+        >
+          <DoubleArrow/>
+        </button>
+      </div> : <h1>Not found</h1>}
+    </>
   );
 };
 

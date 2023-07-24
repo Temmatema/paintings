@@ -29,7 +29,7 @@ const FilterAuthor = () => {
   }
 
   return (
-    <div className="filter__field filter-select">
+    <div className="filter__field filter-author filter-select">
       <button
         className={`filter__btn ${isActive ? "is-active" : ""}`}
         onClick={() => setIsActive(!isActive)}
