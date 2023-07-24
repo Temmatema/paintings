@@ -18,8 +18,8 @@ const Card = ({ imageUrl, name, authorId, created, locationId }) => {
 
   return (
     <motion.div className="cards__item"
-                initial={{ opacity: 0, y: 50 }} // начальные стили перед анимацией
-                animate={{ opacity: 1, y: 0 }} // стили во время анимации
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}>
       {!imageLoaded && <Loader/>}
       <img src={`https://test-front.framework.team${imageUrl}`}
