@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ReactComponent as Logo } from "../img/logo.svg";
 import { ReactComponent as ThemeLogo } from "../img/theme.svg";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [theme, setTheme] = useState("light");
@@ -18,9 +19,12 @@ const Header = () => {
   return (
     <header className="header">
       <Logo />
-      <button onClick={toggleTheme}>
+      <motion.button
+        whileHover={{ scale: 1.1 }} // Анимация при наведении
+        whileTap={{ scale: 0.9 }}
+        onClick={toggleTheme}>
         <ThemeLogo />
-      </button>
+      </motion.button>
     </header>
   );
 };

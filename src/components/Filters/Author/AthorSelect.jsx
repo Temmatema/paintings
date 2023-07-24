@@ -1,8 +1,11 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
 const AuthorSelect = ({ isActive, authors, onSelect }) => {
   return (
-    <ul className={`select ${isActive ? 'is-active' : ''}`}>
+    <motion.ul className={`select ${isActive ? 'is-active' : ''}`}
+               animate={{ height: isActive ? "auto" : 0 }}
+               transition={{ duration: 0.2 }}>
       {!authors ? (
         <div>Loading...</div>
       ) : (
@@ -12,7 +15,7 @@ const AuthorSelect = ({ isActive, authors, onSelect }) => {
           </button>
         ))
       )}
-    </ul>
+    </motion.ul>
   );
 };
 

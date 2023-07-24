@@ -1,6 +1,8 @@
 import React, {useContext, useState} from "react";
 import {Context} from "../context";
 import Loader from "./Loader";
+import {motion} from "framer-motion";
+
 
 const Card = ({ imageUrl, name, authorId, created, locationId }) => {
   const {authors, locations} = useContext(Context);
@@ -15,7 +17,10 @@ const Card = ({ imageUrl, name, authorId, created, locationId }) => {
   };
 
   return (
-    <div className="cards__item">
+    <motion.div className="cards__item"
+                initial={{ opacity: 0, y: 50 }} // начальные стили перед анимацией
+                animate={{ opacity: 1, y: 0 }} // стили во время анимации
+                transition={{ duration: 0.5, delay: 0.1 }}>
       {!imageLoaded && <Loader/>}
       <img src={`https://test-front.framework.team${imageUrl}`}
            alt="Картина."
@@ -33,7 +38,7 @@ const Card = ({ imageUrl, name, authorId, created, locationId }) => {
           Location: <span>{location}</span>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
