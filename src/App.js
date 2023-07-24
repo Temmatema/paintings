@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import {apiPaintings, getAuthors, getLocations} from "./utils/api";
-import { useEffect, useState } from "react";
+import {useCallback, useEffect, useState} from "react";
 import { Context } from "./context";
 import axios from "axios";
 
@@ -13,8 +13,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
+  const apiPaintingsMemoized = useCallback(apiPaintings, []);
+  const getLocationsMemoized = useCallback(getLocations, []);
+  const getAuthorsMemoized = useCallback(getAuthors, []);
+
   useEffect(() => {
-    axios.all([apiPaintings(), getLocations(), getAuthors()])
+    axios.all([apiPaintingsMemoized(), getLocationsMemoized(), getAuthorsMemoized()])
       .then(responses => {
         setPaintings(responses[0].data);
         setLocations(responses[1].data);
@@ -24,23 +28,23 @@ function App() {
       })
   }, []);
 
+  const contextValue = {
+    authors,
+    paintings,
+    locations,
+    totalPages,
+    isLoading,
+    page,
+    setPaintings,
+    setTotalPages,
+    setIsLoading,
+    setPage
+  };
+
   return (
     <div className="container">
       <Header />
-      <Context.Provider
-        value={{
-          authors,
-          setPaintings,
-          setTotalPages,
-          totalPages,
-          paintings,
-          locations,
-          setIsLoading,
-          isLoading,
-          page,
-          setPage
-        }}
-      >
+      <Context.Provider value={contextValue}>
         <Main />
       </Context.Provider>
     </div>

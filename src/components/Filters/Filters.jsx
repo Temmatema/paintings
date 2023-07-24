@@ -1,7 +1,7 @@
 import React from "react";
 import FilterName from "./FilterName";
-import FilterAuthor from "./FilterAuthor";
-import FilterLocation from "./FilterLocation";
+import FilterAuthor from "./Author/FilterAuthor";
+import FilterLocation from "./Location/FilterLocation";
 import FilterDate from "./FilterDate";
 
 const Filters = () => {

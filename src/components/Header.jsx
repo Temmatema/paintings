@@ -5,11 +5,15 @@ import { ReactComponent as ThemeLogo } from "../img/theme.svg";
 const Header = () => {
   const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
-
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
-  }, [theme]);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.body.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <header className="header">
