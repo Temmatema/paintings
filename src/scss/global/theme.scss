@@ -1,0 +1,17 @@
+body[data-theme="light"] {
+  --color-primary: #ffffff;
+  --color-second: #ffffff;
+  --font-color: #000000;
+  --black-alpha: rgba(0, 0, 0, 0.3);
+  --hover-btn: #EDEDED;
+  --date-background: #efefef;
+}
+
+body[data-theme="dark"] {
+  --color-primary: #000000;
+  --color-second: #0C0C0C;
+  --font-color: #ffffff;
+  --black-alpha: #ffffff;
+  --hover-btn: #464646;
+  --date-background: #ffffff;
+}

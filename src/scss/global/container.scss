@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1366px;
+  padding: 0 20px;
+  overflow-x: hidden;
+
+  @include vp-768 {
+    padding: 0 34px;
+  }
+
+  @include vp-1024 {
+    padding: 0 42px;
+  }
+
+  @include vp-1366 {
+    padding: 0 123px;
+  }
+}
+
