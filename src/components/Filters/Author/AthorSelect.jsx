@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import Loader from "../../Loader";
 
 const AuthorSelect = ({ isActive, authors, onSelect }) => {
   return (
@@ -7,7 +8,7 @@ const AuthorSelect = ({ isActive, authors, onSelect }) => {
                animate={{ height: isActive ? "auto" : 0 }}
                transition={{ duration: 0.2 }}>
       {!authors ? (
-        <div>Loading...</div>
+        <Loader/>
       ) : (
         authors.map((el) => (
           <button key={el.id} onClick={() => onSelect(el)} className="select__item">

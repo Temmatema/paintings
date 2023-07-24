@@ -7,6 +7,7 @@ import { debounce } from "lodash";
 import { apiPaintings } from "../../utils/api";
 import Button from "./Button";
 import PageButton from "./PageButton";
+import NotFound from "../NotFound";
 
 const Pagination = () => {
   let { totalPages, setPaintings, setIsLoading, page, setPage, paintings } =
@@ -23,7 +24,7 @@ const Pagination = () => {
   }, 500);
 
   if (!paintings.length) {
-    return <h1>Not found</h1>;
+    return <NotFound/>
   }
 
   return (

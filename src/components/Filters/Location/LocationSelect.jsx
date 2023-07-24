@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import Loader from "../../Loader";
 
 const LocationSelect = ({ isActive, locations, onSelect }) => {
   return (
@@ -8,7 +9,7 @@ const LocationSelect = ({ isActive, locations, onSelect }) => {
                transition={{ duration: 0.2 }}
     >
       {!locations ? (
-        <div>Loading...</div>
+        <Loader/>
       ) : (
         locations.map((el) => (
           <button key={el.id} onClick={() => onSelect(el)} className="select__item">
