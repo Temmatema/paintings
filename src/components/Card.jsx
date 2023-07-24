@@ -7,7 +7,7 @@ const Card = ({ imageUrl, name, authorId, created, locationId }) => {
   const authorName = authors.find((obj) => obj.id === authorId).name;
   const location = locations.find((obj) => obj.id === locationId).location;
 
-  const getUrl = (url) => `https://test-front.framework.team/${url}`
+  const getUrl = (url) => `https://test-front.framework.team${url}`
 
   return (
     <div className="cards__item">

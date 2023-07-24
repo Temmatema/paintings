@@ -21,7 +21,11 @@ const FilterAuthor = () => {
 
   function clearSelect() {
     setAuthorName("");
-    apiPaintings({ authorId: null, _page: 1 }).then((res) => setPaintings(res.data));
+    apiPaintings({ authorId: null, _page: 1 }).then((res) => {
+      setPage(1);
+      setTotalPages(res.headers['x-total-count']);
+      setPaintings(res.data)
+    });
   }
 
   return (
