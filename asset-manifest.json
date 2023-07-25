@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/paintings/static/css/main.d5faad63.css",
+    "main.css": "/paintings/static/css/main.5437ffb5.css",
     "main.js": "/paintings/static/js/main.5c77561c.js",
     "static/media/roboto-v30-latin-500.woff2": "/paintings/static/media/roboto-v30-latin-500.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-v30-latin-700.woff2": "/paintings/static/media/roboto-v30-latin-700.227c93190fe7f82de3f8.woff2",
@@ -12,11 +12,11 @@
     "static/media/close.svg": "/paintings/static/media/close.e2cc7664ce5c918752885fd089cc1ca3.svg",
     "static/media/pag-arrow.svg": "/paintings/static/media/pag-arrow.54a92e15df89a0b17d1bb3975f2c3c4b.svg",
     "static/media/arrow-small.svg": "/paintings/static/media/arrow-small.cc0a32441ed05124a0e8375ab91ed604.svg",
-    "main.d5faad63.css.map": "/paintings/static/css/main.d5faad63.css.map",
+    "main.5437ffb5.css.map": "/paintings/static/css/main.5437ffb5.css.map",
     "main.5c77561c.js.map": "/paintings/static/js/main.5c77561c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5faad63.css",
+    "static/css/main.5437ffb5.css",
     "static/js/main.5c77561c.js"
   ]
 }
