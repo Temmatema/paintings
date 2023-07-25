@@ -11,6 +11,7 @@
     height: 1px;
     width: 12px;
     background-color: var(--font-color);
+    transition: background-color 0.2s ease-in-out;
     position: absolute;
     top: 0;
     bottom: 0;

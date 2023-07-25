@@ -20,13 +20,11 @@ html {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // оптимизация выравнивания шрифта относительно центра строки
   text-rendering: optimizeLegibility;
-  // если по прежнему есть проблемы с выравниванием
-  // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
 }
 
 body {
+  transition: background-color 0.2s ease-in-out;
   background-color: var(--color-primary);
 }
 
@@ -37,6 +35,7 @@ p,
 span {
   margin: 0;
   color: var(--font-color);
+  transition: color 0.2s ease-in-out;
 }
 
 a {
@@ -72,4 +71,14 @@ label {
 
 input {
   padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
