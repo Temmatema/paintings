@@ -27,6 +27,10 @@ const Pagination = () => {
     return <NotFound/>
   }
 
+  if (totalPages.length < 2) {
+    return null;
+  }
+
   return (
     <div className="pagination">
       <Button disabled={page <= 1} onClick={() => changeHandler(1)}>
