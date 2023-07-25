@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <main className="main">
       <Filters />
-      {!paintings || !authors || !locations ? (
+      {!paintings.length && !authors.length && !locations.length ? (
         <Loader />
       ) : (
         <CardList paintings={paintings} />

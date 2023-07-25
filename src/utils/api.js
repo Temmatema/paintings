@@ -17,7 +17,6 @@ let initialParams = {
 };
 
 export async function apiPaintings(params = {}) {
-
   initialParams = {...initialParams, ...params}
 
   return await axios.get(ALL_PAINTINGS, {
