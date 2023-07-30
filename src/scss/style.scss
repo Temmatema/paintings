@@ -1,20 +1,20 @@
 // Global
 // ---------------------------------
 
-@import "variables";
-@import "mixins";
-@import "global/theme";
-@import "global/fonts";
-@import "global/reboot";
-@import "global/container";
+@import 'variables';
+@import 'mixins';
+@import 'global/theme';
+@import 'global/fonts';
+@import 'global/reboot';
+@import 'global/container';
 
 // Blocks
 // ---------------------------------
 
-@import "blocks/header";
-@import "blocks/filter";
-@import "blocks/select";
-@import "blocks/select-date";
-@import "blocks/card";
-@import "blocks/loader";
-@import "blocks/pagination";
+@import 'blocks/header';
+@import 'blocks/filter';
+@import 'blocks/select';
+@import 'blocks/select-date';
+@import 'blocks/card';
+@import 'blocks/loader';
+@import 'blocks/pagination';

@@ -1,20 +1,20 @@
-import React from "react";
-import FilterName from "./FilterName";
-import FilterAuthor from "./Author/FilterAuthor";
-import FilterLocation from "./Location/FilterLocation";
-import FilterDate from "./FilterDate";
+import React, { memo } from 'react'
+import FilterName from './FilterName/FilterName'
+import FilterAuthor from './FilterAuthor/FilterAuthor'
+import FilterLocation from './FilterLocation/FilterLocation'
+import FilterDate from './FilterDate/FilterDate'
 
 const Filters = () => {
   return (
-    <div className="filter">
-      <div className="filter__wrap">
-        <FilterName/>
-        <FilterAuthor/>
-        <FilterLocation/>
-        <FilterDate/>
+    <div className='filter'>
+      <div className='filter__wrap'>
+        <FilterName />
+        <FilterAuthor />
+        <FilterLocation />
+        <FilterDate />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Filters;
+export default memo(Filters)

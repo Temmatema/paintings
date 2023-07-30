@@ -1,5 +1,5 @@
-import React from 'react';
-import { ReactComponent as ArrowBtn } from "../../img/arrow-small.svg";
+import React from 'react'
+import { ReactComponent as ArrowBtn } from '../../../img/arrow-small.svg'
 
 const FilterButton = ({ isActive, onClick, buttonText }) => {
   return (
@@ -7,7 +7,7 @@ const FilterButton = ({ isActive, onClick, buttonText }) => {
       <span>{buttonText}</span>
       <ArrowBtn />
     </button>
-  );
-};
+  )
+}
 
-export default FilterButton;
+export default FilterButton

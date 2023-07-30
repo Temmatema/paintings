@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import Card from "./Card";
-import { Context } from "../context";
-import Loader from "./Loader";
+import React, { useContext } from 'react'
+import Card from '../Card/Card'
+import { Context } from '../../context'
+import Loader from '../Loader/Loader'
 
 const CardList = ({ paintings }) => {
-  const { isLoading } = useContext(Context);
+  const { isLoading } = useContext(Context)
 
   return (
-    <div className="cards">
+    <div className='cards'>
       {isLoading ? (
         <Loader />
       ) : (
@@ -21,11 +21,11 @@ const CardList = ({ paintings }) => {
               authorId={el.authorId}
               imageUrl={el.imageUrl}
             />
-          );
+          )
         })
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CardList;
+export default CardList
