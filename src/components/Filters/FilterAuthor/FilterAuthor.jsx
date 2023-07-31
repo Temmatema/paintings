@@ -4,6 +4,7 @@ import { Context } from '../../../context'
 import { apiPaintings } from '../../../utils/api'
 import FilterButton from '../FilterButton/FilterButton'
 import AuthorSelect from './AuthorSelect/AthorSelect'
+import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
 
 const FilterAuthor = () => {
   const [isActive, setIsActive] = useState(false)
@@ -30,20 +31,22 @@ const FilterAuthor = () => {
   }
 
   return (
-    <div className='filter__field filter-author filter-select'>
-      <FilterButton
-        isActive={isActive}
-        onClick={() => setIsActive(!isActive)}
-        buttonText={authorName || 'FilterAuthor'}
-      />
-      {authorName && (
-        <button className='filter__clear' onClick={clearSelect}>
-          <Close />
-        </button>
-      )}
+    <OutsideClickHandler onOutsideClick={() => setIsActive(false)}>
+      <div className='filter__field filter-author filter-select'>
+        <FilterButton
+          isActive={isActive}
+          onClick={() => setIsActive(!isActive)}
+          buttonText={authorName || 'FilterAuthor'}
+        />
+        {authorName && (
+          <button className='filter__clear' onClick={clearSelect}>
+            <Close />
+          </button>
+        )}
 
-      <AuthorSelect isActive={isActive} authors={authors} onSelect={authorSelect} />
-    </div>
+        <AuthorSelect isActive={isActive} authors={authors} onSelect={authorSelect} />
+      </div>
+    </OutsideClickHandler>
   )
 }
 

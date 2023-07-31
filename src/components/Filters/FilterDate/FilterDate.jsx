@@ -3,6 +3,7 @@ import { ReactComponent as ArrowBtn } from '../../../img/arrow-small.svg'
 import { debounce } from 'lodash'
 import { apiPaintings } from '../../../utils/api'
 import { Context } from '../../../context'
+import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
 
 const FilterDate = () => {
   const [isActive, setIsActive] = useState(false)
@@ -38,20 +39,22 @@ const FilterDate = () => {
   }
 
   return (
-    <div className='filter__field filter-date filter-select'>
-      <button
-        className={`filter__btn filter__btn--date ${isActive ? 'is-active' : ''}`}
-        onClick={() => setIsActive(!isActive)}
-      >
-        <span>Created</span>
-        <ArrowBtn />
-      </button>
+    <OutsideClickHandler onOutsideClick={() => setIsActive(false)}>
+      <div className='filter__field filter-date filter-select'>
+        <button
+          className={`filter__btn filter__btn--date ${isActive ? 'is-active' : ''}`}
+          onClick={() => setIsActive(!isActive)}
+        >
+          <span>Created</span>
+          <ArrowBtn />
+        </button>
 
-      <div className={`select select-date ${isActive ? 'is-active' : ''}`}>
-        <input type='number' placeholder='from' ref={inputStart} onChange={(e) => valueHandler(e)} />
-        <input type='number' ref={inputEnd} placeholder='before' onChange={(e) => valueHandler(e)} />
+        <div className={`select select-date ${isActive ? 'is-active' : ''}`}>
+          <input type='number' placeholder='from' ref={inputStart} onChange={(e) => valueHandler(e)} />
+          <input type='number' ref={inputEnd} placeholder='before' onChange={(e) => valueHandler(e)} />
+        </div>
       </div>
-    </div>
+    </OutsideClickHandler>
   )
 }
 

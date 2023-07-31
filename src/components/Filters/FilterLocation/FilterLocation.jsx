@@ -4,6 +4,7 @@ import { ReactComponent as Close } from '../../../img/close.svg'
 import { apiPaintings } from '../../../utils/api'
 import FilterButton from '../FilterButton/FilterButton'
 import LocationSelect from './LocationSelect/LocationSelect'
+import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
 
 const FilterLocation = () => {
   const [isActive, setIsActive] = useState(false)
@@ -30,16 +31,18 @@ const FilterLocation = () => {
   }
 
   return (
-    <div className='filter__field filter-location filter-select'>
-      <FilterButton isActive={isActive} onClick={() => setIsActive(!isActive)} buttonText={locName || 'Location'} />
-      {locName !== '' && (
-        <button className='filter__clear' onClick={clearSelect}>
-          <Close />
-        </button>
-      )}
+    <OutsideClickHandler onOutsideClick={() => setIsActive(false)}>
+      <div className='filter__field filter-location filter-select'>
+        <FilterButton isActive={isActive} onClick={() => setIsActive(!isActive)} buttonText={locName || 'Location'} />
+        {locName !== '' && (
+          <button className='filter__clear' onClick={clearSelect}>
+            <Close />
+          </button>
+        )}
 
-      <LocationSelect isActive={isActive} locations={locations} onSelect={locationSelect} />
-    </div>
+        <LocationSelect isActive={isActive} locations={locations} onSelect={locationSelect} />
+      </div>
+    </OutsideClickHandler>
   )
 }
 
